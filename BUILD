@@ -16,9 +16,9 @@ cc_library(
         "status_macros.h",
     ],
     deps = [
-        "@com_google_absl//absl/base:core_headers",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/status",
-        "@com_google_absl//absl/strings",
+        "@absl//absl/base:core_headers",
+        "@absl//absl/memory",
+        "@absl//absl/status",
+        "@absl//absl/strings",
     ],
 )
