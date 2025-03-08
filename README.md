@@ -7,33 +7,20 @@ redistributed from [mediapipe](https://github.com/google/mediapipe).
 
 ### MODULE.bzl
 
-Add bazel_deps from https://github.com/jimrogerz/status_macros/blob/main/MODULE.bazel:
-
-```
-bazel_dep(name = "rules_cc", version = "0.1.1")
-bazel_dep(name = "abseil-cpp", version = "20250127.0", repo_name = "absl")
-```
-
-Add the http_archive rule:
 
 ```
 http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-```
 
-Add the http_archive using the latest commit from https://github.com/jimrogerz/status_macros/commits/main/:
-
-```
-STATUS_MACROS_COMMIT = "c2fcdb9b0d29ae60470c98c0f6f8ea42daad942c"
 http_archive(
     name = "status_macros",
-    strip_prefix = "status_macros-" + STATUS_MACROS_COMMIT,
-    url = "https://github.com/jimrogerz/status_macros/archive/%s.zip" % STATUS_MACROS_COMMIT,
+    strip_prefix = "status_macros-1.0.1",
+    urls = ["https://github.com/bashtavenko/status_macros/archive/refs/tags/v1.0.1.tar.gz"],
 )
 ```
 
 ### BUILD
 
-Add `"@status_macros//:status_macros"` to BUILD deps for targets that use this.
+Add `"@status_macros"` to BUILD deps for targets that use this.
 
 ## Usage
 
